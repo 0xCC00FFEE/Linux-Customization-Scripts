@@ -1,0 +1,84 @@
+background yes
+use_xft yes
+#xftfont OpenLogos:size=10 
+xftfont Sans:size=8
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type normal #desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 300 200
+maximum_width 600
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color white
+alignment top_right
+gap_x 15
+gap_y 50
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale yes
+
+#default_color B15100
+#default_color 51010F
+#default_color 86b5ea
+default_color 64A0FF
+#default_color red
+#default_color firebrick
+#default_color green
+#default_color blue
+#default_color deeppink
+#default_color yellow
+#default_color darkslateblue
+#default_color darkviolet
+color1 white
+default_shade_color 7a999c
+default_outline_color green
+
+TEXT
+${color}${font Radio Space:size=10:}SYSTEM${hr 1}
+${font OpenLogos:size=10}${color}-> ${color1}${font}Kernel${alignr}${kernel}
+${font StyleBats:size=10}${color}-> ${color1}${font}Processor${alignr}${freq_g cpu0}
+${font StyleBats:size=10}${color}-> ${color1}${font}Uptime${alignr}${uptime}
+${font StyleBats:size=10}${color}-> ${color1}${font}File System${alignr}ext4
+
+${font Radio Space:size=10}${color}PROCESSORS ${hr 1}${font sans-serif:normal:size=8}${color1}
+${color1}Intel Core i7  $alignr $freq MHz
+${font poky:size=10}${color}| ${color1}${font}AVG:  ${cpu cpu0}% ${color}${cpubar cpu0}
+${font poky:size=10}${color}| ${color1}${font}${color1}CPU1: ${cpu cpu1}% ${color}${cpubar cpu1}
+${font poky:size=10}${color}| ${color1}${font}${color1}CPU2: ${cpu cpu2}% ${color}${cpubar cpu2}
+${font poky:size=10}${color}| ${color1}${font}${color1}CPU3: ${cpu cpu3}% ${color}${cpubar cpu3}
+${font poky:size=10}${color}| ${color1}${font}${color1}CPU4: ${cpu cpu4}% ${color}${cpubar cpu4}
+
+${font Radio Space:size=10}${color}TEMPS ${hr 1}${font sans-serif:normal:size=8}${color1}
+${font Weather:size=10}${color}| ${color1}${font}CORE 1: ${alignr}${color red}${exec sensors -f | grep "Core 0" | cut -c8-24}
+${font Weather:size=10}${color}| ${color1}${font}CORE 2: ${alignr}${color red}${exec sensors -f | grep "Core 1" | cut -c8-24}
+
+${font Radio Space:size=10}${color}MEMORY ${hr 1}
+${font stylebats:size=10}${color}| ${color1}${font}${color1}${font sans-serif:normal:size=8}${color1}RAM $alignc $mem / $memmax 
+$alignr $memperc% 
+${color}$membar
+
+${font Radio Space:size=10}${color}TOP PROCESSES ${hr 1}
+${font StyleBats:size=10}${color}| ${color1}${font}${color1}${font sans-serif:normal:size=8}${color1}${top_mem name 1}${alignr}${top mem 1} %
+${font StyleBats:size=10}${color}| ${color1}${font}${color1}${top_mem name 2}${alignr}${top mem 2} %
+${font StyleBats:size=10}${color}| ${color1}${font}${color1}$font${top_mem name 3}${alignr}${top mem 3} %
+${font StyleBats:size=10}${color}| ${color1}${font}${color1}$font${top_mem name 4}${alignr}${top mem 4} %
+${font StyleBats:size=10}${color}| ${color1}${font}${color1}$font${top_mem name 5}${alignr}${top mem 5} %
+
+${font Radio Space:size=10}${color}NETWORK ${hr 1}
+${font PizzaDude Bullets:size=10}${color}${font}${color1}${font sans-serif:normal:size=8}${color1}IP address: $alignr ${addr wlp2s0}
+${font PizzaDude Bullets:size=10}${color}${font}${color1}${font sans-serif:normal:size=8}${color1}Download : $alignr ${downspeed wlp2s0}
+${font PizzaDude Bullets:size=10}${color}${font}${color1}${font sans-serif:normal:size=8}${color1}Upload : $alignr ${upspeed wlp2s0}
+${font PizzaDude Bullets:size=10}${color}${font}${color1}${font sans-serif:normal:size=8}${color1}Total Upload : $alignr ${totalup wlp2s0}
+${font PizzaDude Bullets:size=10}${color}${font}${color1}${font sans-serif:normal:size=8}${color1}Total Download : $alignr ${totaldown wlp2s0}
+
+
